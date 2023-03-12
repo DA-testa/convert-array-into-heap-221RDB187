@@ -1,14 +1,29 @@
 # python3
 
+def Sift(data, i , swaps):
+    n = len(data)
+    minIndex = i
+    leftChild = 2*i+1
+    if leftChild < n and data[leftChild] < data[minIndex]:
+        minIndex = leftChild
+
+    rightChild = 2*i+2
+    if rightChild < n and data[rightChild] < data[minIndex]:
+        minIndex = rightChild
+    if i != minIndex:
+        data[i] , data[minIndex] = data[minIndex], data[i]
+        swaps.append(i, minIndex)
+        Sift(data, minIndex, swaps)
+
 
 def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-
-
+    n = len(data)
+    for i in range(n//2-1, -1, -1):
+        Sift(data, i, swaps)
     return swaps
-
 
 def main():
     
