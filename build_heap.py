@@ -27,27 +27,22 @@ def build_heap(data):
 
 def main():
     
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
+    inputType = input("F or I")
 
+    if inputType == 'F':
+        fileName = input("File Name?")
+        if "test/" not in fileName:
+            fileName = "test/" + fileName
+        with open(fileName, 'r')as f:
+            n = int(f.readline())
+            data = list(map(int, f.readline().split()))
 
-    # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
+    elif inputType == 'I':
+        n = int(input())
+        data = list(map(int, input().split()))
 
-    # checks if lenght of data is the same as the said lenght
     assert len(data) == n
-
-    # calls function to assess the data 
-    # and give back all swaps
     swaps = build_heap(data)
-
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
-
-
-    # output all swaps
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
