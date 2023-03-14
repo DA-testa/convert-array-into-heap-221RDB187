@@ -9,7 +9,7 @@ def build_heap(data):
     # try to achieve  O(n) and not O(n2)
 
     s = len(data)
-    for i in range((s//2)-1, -1, -1):
+    for i in range(s//2-1, -1, -1):
         minIndex = i
         while True:
             leftChild = 2*minIndex+1
