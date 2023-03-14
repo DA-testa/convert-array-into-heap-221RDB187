@@ -38,7 +38,7 @@ def main():
         fileName = input("File Name?")
         tests = './tests/'
         file = tests + fileName
-        with open(file, 'r')as f:
+        with open(file, mode="r")as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
 
