@@ -33,7 +33,7 @@ def main():
 
     if 'F' in inputType:
         fileName = input("File Name?")
-        if "./test/" not in fileName:
+        if "./tests/" not in fileName:
             fileName = "test/" + fileName
         with open(fileName, 'r')as f:
             n = int(f.readline())
