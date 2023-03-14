@@ -20,9 +20,10 @@ def build_heap(data):
             if i != j:
                 data[i] , data[j] = data[j], data[i]
                 swaps.append((i, j))
-                j = i
+                i = j
             else:
                 break
+
     if len(swaps)>4*len(data):
         raise Exception("Greater than 4n")
 
@@ -38,17 +39,18 @@ def main():
         file = tests + fileName
         with open(file, 'r')as f:
             n = int(f.readline())
-            data = list(map(int, f.readline().split()))
+            data=list(map(int,f.readline().split()))
 
     elif 'I' in inputType:
         n = int(input())
         data = list(map(int, input().split()))
 
-    else :
+    else:
         print("Input error")
 
     assert len(data) == n
     swaps = build_heap(data)
+    
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
