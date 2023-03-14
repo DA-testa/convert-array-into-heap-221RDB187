@@ -33,9 +33,9 @@ def main():
 
     if 'F' in inputType:
         fileName = input("File Name?")
-        if "./tests/" not in fileName:
-            fileName = "test/" + fileName
-        with open(fileName, 'r')as f:
+        tests = './tests/'
+        file = tests + fileName
+        with open(file, 'r')as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
 
