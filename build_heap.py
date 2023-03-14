@@ -11,12 +11,12 @@ def build_heap(data):
     s = len(data)
     for i in range((s//2)-1, -1, -1):
         minIndex = i
+        leftChild = 2*minIndex+1
+        rightChild = 2*minIndex+2
         while True:
-            leftChild = 2*minIndex+1
             if leftChild < s and data[leftChild] < data[minIndex]:
                 minIndex = leftChild
-
-            rightChild = 2*minIndex+2
+ 
             if rightChild < s and data[rightChild] < data[minIndex]:
                 minIndex = rightChild
 
