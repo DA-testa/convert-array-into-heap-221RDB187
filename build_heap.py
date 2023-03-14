@@ -5,25 +5,27 @@
 
 def build_heap(data):
     swaps = []
+    # TODO: Creat heap and heap sort
+    # try to achieve  O(n) and not O(n2)
+
     s = len(data)
     for i in range((s//2)-1, -1, -1):
-        j = i
+        minIndex = i
         while True:
-            l = 2*j+1
-            if l < s and data[l] < data[j]:
-                j = l
+            leftChild = 2*minIndex+1
+            if leftChild < s and data[leftChild] < data[minIndex]:
+                minIndex = leftChild
 
-            r = 2*j+2
-            if r < s and data[r] < data[j]:
-                j = r
+            rightChild = 2*minIndex+2
+            if rightChild < s and data[rightChild] < data[minIndex]:
+                minIndex = rightChild
 
-            if i != j:
-                data[i] , data[j] = data[j], data[i]
-                swaps.append((i, j))
-                i = j
+            if i != minIndex:
+                data[i] , data[minIndex] = data[minIndex], data[i]
+                swaps.append((i, minIndex))
+                i = minIndex
             else:
                 break
-
     if len(swaps)>4*len(data):
         raise Exception("Greater than 4n")
 
@@ -39,21 +41,20 @@ def main():
         file = tests + fileName
         with open(file, 'r')as f:
             n = int(f.readline())
-            data=list(map(int,f.readline().split()))
+            data = list(map(int, f.readline().split()))
 
     elif 'I' in inputType:
         n = int(input())
         data = list(map(int, input().split()))
 
-    else:
+    else :
         print("Input error")
 
     assert len(data) == n
     swaps = build_heap(data)
-    
     print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
+    for i, minIndex in swaps:
+        print(i, minIndex)
 
 
 if __name__ == "__main__":
