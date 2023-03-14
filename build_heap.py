@@ -1,8 +1,5 @@
 # python3
 
-
-
-
 def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
@@ -23,7 +20,9 @@ def build_heap(data):
             if i != minIndex:
                 data[i] , data[minIndex] = data[minIndex], data[i]
                 swaps.append((i, minIndex))
-                minIndex = i
+                i = minIndex
+                leftChild = 2*i+1
+                rightChild = 2*i+2
             else:
                 break
     if len(swaps)>4*len(data):
