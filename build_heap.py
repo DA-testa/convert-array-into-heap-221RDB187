@@ -31,7 +31,7 @@ def main():
     
     inputType = input("F or I")
 
-    if inputType == 'F':
+    if 'F' in inputType:
         fileName = input("File Name?")
         if "./test/" not in fileName:
             fileName = "test/" + fileName
@@ -39,7 +39,7 @@ def main():
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
 
-    elif inputType == 'I':
+    if 'I' in inputType:
         n = int(input())
         data = list(map(int, input().split()))
 
