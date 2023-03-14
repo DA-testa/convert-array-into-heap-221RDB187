@@ -23,7 +23,7 @@ def build_heap(data):
             if i != minIndex:
                 data[i] , data[minIndex] = data[minIndex], data[i]
                 swaps.append((i, minIndex))
-                i = minIndex
+                minIndex = i
             else:
                 break
     if len(swaps)>4*len(data):
