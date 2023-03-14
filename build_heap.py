@@ -13,7 +13,8 @@ def Sift(data, i , swaps):
     if i != minIndex:
         data[i] , data[minIndex] = data[minIndex], data[i]
         swaps.append(i, minIndex)
-        Sift(data, minIndex, swaps)
+        minIndex = i
+
 
 
 def build_heap(data):
