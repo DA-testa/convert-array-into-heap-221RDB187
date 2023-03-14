@@ -7,16 +7,16 @@ def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-    n = len(data)
-    for i in range(n//2-1, -1, -1):
+    s = len(data)
+    for i in range((n//2)-1, -1, -1):
         minIndex = i
         while(True):
             leftChild = 2*i+1
-            if leftChild < n and data[leftChild] < data[minIndex]:
+            if leftChild < sand data[leftChild] < data[minIndex]:
                 minIndex = leftChild
 
             rightChild = 2*i+2
-            if rightChild < n and data[rightChild] < data[minIndex]:
+            if rightChild < s and data[rightChild] < data[minIndex]:
                 minIndex = rightChild
             if i != minIndex:
                 data[i] , data[minIndex] = data[minIndex], data[i]
