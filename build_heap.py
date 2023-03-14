@@ -19,14 +19,15 @@ def build_heap(data):
             rightChild = 2*minIndex+2
             if rightChild < s and data[rightChild] < data[minIndex]:
                 minIndex = rightChild
+
             if i != minIndex:
                 data[i] , data[minIndex] = data[minIndex], data[i]
                 swaps.append((i, minIndex))
-                minIndex = i
+                i = minIndex
             else:
                 break
     if len(swaps)>4*len(data):
-        raise Exception("Wrong swap count")
+        raise Exception("Greater than 4n")
 
     return swaps
 
@@ -38,11 +39,11 @@ def main():
         fileName = input("File Name?")
         tests = './tests/'
         file = tests + fileName
-        with open(file, mode="r")as f:
+        with open(file, 'r')as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
 
-    if 'I' in inputType:
+    elif 'I' in inputType:
         n = int(input())
         data = list(map(int, input().split()))
 
