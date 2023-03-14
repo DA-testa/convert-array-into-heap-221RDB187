@@ -8,7 +8,7 @@ def build_heap(data):
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
     s = len(data)
-    for i in range((n//2)-1, -1, -1):
+    for i in range((s//2)-1, -1, -1):
         minIndex = i
         while(True):
             leftChild = 2*i+1
@@ -24,7 +24,7 @@ def build_heap(data):
                 minIndex = i
             else:
                 break
-
+    return swaps
 
 def main():
     
@@ -32,7 +32,7 @@ def main():
 
     if inputType == 'F':
         fileName = input("File Name?")
-        if "test/" not in fileName:
+        if "./test/" not in fileName:
             fileName = "test/" + fileName
         with open(fileName, 'r')as f:
             n = int(f.readline())
