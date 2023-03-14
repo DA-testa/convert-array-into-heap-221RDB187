@@ -46,11 +46,14 @@ def main():
         n = int(input())
         data = list(map(int, input().split()))
 
+    else :
+        print("Input error")
+
     assert len(data) == n
     swaps = build_heap(data)
     print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
+    for i, minIndex in swaps:
+        print(i, minIndex)
 
 
 if __name__ == "__main__":
