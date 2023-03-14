@@ -9,21 +9,21 @@ def build_heap(data):
     # try to achieve  O(n) and not O(n2)
 
     s = len(data)
-    for i in range(s//2-1, -1, -1):
-        minIndex = i
+    for i in range((s//2)-1, -1, -1):
+        j = i
         while True:
-            leftChild = 2*minIndex+1
-            if leftChild < s and data[leftChild] < data[minIndex]:
-                minIndex = leftChild
+            leftChild = 2*j+1
+            if leftChild < s and data[leftChild] < data[j]:
+                j = leftChild
 
-            rightChild = 2*minIndex+2
-            if rightChild < s and data[rightChild] < data[minIndex]:
-                minIndex = rightChild
+            rightChild = 2*j+2
+            if rightChild < s and data[rightChild] < data[j]:
+                j = rightChild
 
-            if i != minIndex:
-                data[i] , data[minIndex] = data[minIndex], data[i]
-                swaps.append((i, minIndex))
-                minIndex = i
+            if i != j:
+                data[i] , data[j] = data[j], data[i]
+                swaps.append((i, j))
+                i = j
             else:
                 break
     if len(swaps)>4*len(data):
@@ -53,8 +53,8 @@ def main():
     assert len(data) == n
     swaps = build_heap(data)
     print(len(swaps))
-    for i, minIndex in swaps:
-        print(i, minIndex)
+    for i, j in swaps:
+        print(i, j)
 
 
 if __name__ == "__main__":
