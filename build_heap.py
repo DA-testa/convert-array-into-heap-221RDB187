@@ -12,7 +12,7 @@ def build_heap(data):
         minIndex = i
         while(True):
             leftChild = 2*i+1
-            if leftChild < sand data[leftChild] < data[minIndex]:
+            if leftChild < s and data[leftChild] < data[minIndex]:
                 minIndex = leftChild
 
             rightChild = 2*i+2
