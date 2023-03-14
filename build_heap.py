@@ -25,6 +25,8 @@ def build_heap(data):
                 minIndex = i
             else:
                 break
+            if len(swaps)>4*len(data):
+                raise Exeption("Wrong swap count")
     return swaps
 
 def main():
